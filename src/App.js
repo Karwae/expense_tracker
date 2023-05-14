@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCustomerAction, removeCustomerAction } from './store/customerReducer';
+import { fetchCustomers } from './asyncAction/customer';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
      <button onClick={() => addCash(Number(prompt()))}>Add</button>
      <button onClick={() => getCash(Number(prompt()))}>Get</button>
      <button onClick={() => addCustomer(prompt())}>Add Client</button>
+     <button onClick={() => dispatch(fetchCustomers())}>Add Client from Data</button>
      {customers.length > 0 ?
     <div>{customers.map(customer => <div onClick={() => removeCustomer(customer)}>{customer.name}</div>)}</div>
     :
